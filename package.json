@@ -1,7 +1,7 @@
 {
   "name": "yalyn-academy",
   "version": "1.0.0",
-  "description": "منصة يالين لتوليد الأسئلة وتصحيحها بالذكاء الاصطناعي",
+  "description": "منصة يالين للتعلم الذكي",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
