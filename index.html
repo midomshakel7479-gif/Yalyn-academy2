@@ -1,462 +1,197 @@
-<!doctype html>
-<html lang="en" dir="rtl">
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>YALYN Academy Premium — Teacher Command Center</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
-
-<style>
-:root{--bg:#050817;--panel:#0b1230cc;--line:#ffffff14;--text:#f7f8ff;--muted:#a5aec8;--violet:#8b5cf6;--cyan:#22d3ee;--gold:#fbbf24;--green:#34d399}
-*{box-sizing:border-box}body{margin:0;color:var(--text);font-family:Inter,system-ui,sans-serif;background:radial-gradient(circle at 15% 0%,#32116e 0,transparent 30%),radial-gradient(circle at 95% 20%,#003e5d 0,transparent 27%),var(--bg);min-height:100vh;overflow-x:hidden}
-.shell{display:grid;grid-template-columns:250px 1fr;min-height:100vh}.sidebar{position:sticky;top:0;height:100vh;padding:18px 14px;background:#040716dd;border-right:1px solid var(--line);backdrop-filter:blur(22px);z-index:10}
-.brand{display:flex;align-items:center;gap:10px;padding:8px 10px 18px}.logo{width:44px;height:44px;border-radius:15px;background:linear-gradient(135deg,#ffcf48,#8b5cf6 55%,#22d3ee);display:grid;place-items:center;font-size:23px;font-weight:900}.brand b{font-size:20px}.brand small{display:block;color:#ffc84d;letter-spacing:1.4px;margin-top:2px}
-.nav button{width:100%;display:flex;gap:12px;align-items:center;border:0;background:transparent;color:#aeb7d1;padding:12px 13px;border-radius:12px;margin:3px 0;text-align:right;cursor:pointer;transition:.25s;font-size:13px}.nav button:hover,.nav button.active{color:#fff;background:linear-gradient(90deg,#8b5cf633,#22d3ee0d);box-shadow:inset 3px 0 #a78bfa}.nav .icon{width:23px;text-align:center;font-size:17px}.section-label{color:#68738f;font-size:10px;text-transform:uppercase;letter-spacing:1.6px;padding:14px 10px 5px}
-.main{padding:22px 26px 40px;max-width:1600px;width:100%;margin:auto}
-.hero{position:relative;overflow:hidden;min-height:280px;border:1px solid #a78bfa33;border-radius:25px;background:linear-gradient(90deg,#0a0c2bee 0%,#111149d9 48%,#071c31aa 100%);padding:32px;margin-bottom:18px}.hero-content{position:relative;z-index:1;max-width:700px}.hero h1{font-size:38px;line-height:1.08;margin:9px 0}.hero h1 span{color:#c084fc}.hero p{color:#b7bfd4;line-height:1.6}
-.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}.btn{border:0;color:white;padding:12px 16px;border-radius:12px;background:linear-gradient(135deg,#7c3aed,#06b6d4);font-weight:700;cursor:pointer;box-shadow:0 12px 30px #6d28d944;transition:.2s}.btn:hover{transform:translateY(-2px)}.btn.alt{background:#ffffff0c;border:1px solid var(--line);box-shadow:none}
-.card{border:1px solid var(--line);border-radius:19px;background:linear-gradient(145deg,#0e1535d9,#080d21dd);box-shadow:0 20px 55px #0005;backdrop-filter:blur(18px)}.panel{padding:20px;margin-bottom:15px}.panel-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}.panel h3{margin:0;font-size:16px;color:#22d3ee}.muted{color:#8f99b3;font-size:12px}
-.view{display:none}.view.active{display:block}.field{display:block;width:100%;margin-top:6px;background:#ffffff08;border:1px solid var(--line);border-radius:10px;padding:11px;color:white;outline:0}
-.student-modal{position:fixed;inset:0;z-index:11000;background:#020514cc;display:none;align-items:center;justify-content:center;padding:20px}.student-modal-card{width:min(500px,100%);padding:25px;border-radius:24px;background:#0b1230;border:1px solid #ffffff18}.student-form label{display:block;font-size:12px;color:#9da7c0;margin-top:10px}.student-form input{width:100%;box-sizing:border-box;margin-top:6px}
-.table{width:100%;border-collapse:collapse;margin-top:10px}.table th,.table td{padding:10px;border-bottom:1px solid var(--line);text-align:right;font-size:13px}.table th{color:#a5aec8}
-.pill{background:#34d39918;color:#5ee8ae;padding:4px 8px;border-radius:99px;font-size:12px}
-.pill-danger{background:#fb718518;color:#fb7185;padding:4px 8px;border-radius:99px;font-size:12px}
-.question-review-item { background: #ffffff05; border: 1px solid var(--line); padding: 15px; border-radius: 12px; margin-bottom: 10px; display: flex; align-items: flex-start; gap: 15px; }
-.question-review-item input[type="checkbox"] { width: 20px; height: 20px; accent-color: #7c3aed; margin-top: 5px; cursor: pointer; }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة معتصم - مولد البطاقات التعليمية الذكي</title>
+    <!-- مكتبة قراءة ملفات الـ PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8fafc;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            color: #1e293b;
+            margin-bottom: 10px;
+        }
+        p.desc {
+            color: #64748b;
+            margin-bottom: 25px;
+        }
+        .upload-box {
+            background: white;
+            border: 2px dashed #cbd5e1;
+            padding: 30px;
+            border-radius: 12px;
+            max-width: 500px;
+            margin: 0 auto 30px auto;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .upload-box:hover {
+            border-color: #3b82f6;
+            background: #f1f5f9;
+        }
+        input[type="file"] {
+            display: none;
+        }
+        .upload-label {
+            font-size: 16px;
+            color: #334155;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .cards-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            width: 200px;
+            padding: 15px;
+            text-align: center;
+            border-top: 4px solid #3b82f6;
+        }
+        .word {
+            font-size: 20px;
+            font-weight: bold;
+            color: #1e293b;
+            margin: 10px 0 5px 0;
+        }
+        .meaning {
+            font-size: 16px;
+            color: #64748b;
+            margin-bottom: 15px;
+        }
+        .sound-btn {
+            background-color: #10b981;
+            color: white;
+            border: none;
+            padding: 6px 14px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+        .sound-btn:hover {
+            background-color: #059669;
+        }
+        .loading {
+            font-size: 18px;
+            color: #3b82f6;
+            margin: 20px 0;
+            display: none;
+        }
+    </style>
 </head>
 <body>
 
-<div class="shell">
-<aside class="sidebar">
-  <div class="brand"><div class="logo">∑</div><div><b>YALYN Academy</b><small>PREMIUM</small></div></div>
-  <nav class="nav">
-    <div class="section-label">لوحة المعلم</div>
-    <button class="active" onclick="go('dashboard',this)"><i class="icon">⌂</i><span>الرئيسية</span></button>
-    <button onclick="go('students',this)"><i class="icon">♙</i><span>تسجيل الطلاب</span></button>
-    <button onclick="go('exams',this)"><i class="icon">✎</i><span>استخراج الامتحانات من PDF</span></button>
-    <button onclick="go('results',this)"><i class="icon">📊</i><span>متابعة النتائج والغياب</span></button>
-  </nav>
-</aside>
-<main class="main">
+    <h1>منصة معتصم - البطاقات الذكية</h1>
+    <p class="desc">ارفعي ملف الـ PDF الخاص بالمفردات، وستقوم المنصة باستخراجها وعرضها كبطاقات تفاعلية ناطقة فوراً!</p>
 
-<section id="dashboard" class="view active">
-  <div class="hero"><div class="hero-content"><h1>مرحباً بك،<br><span>الأستاذ المعلم</span> 👋</h1><p>استخرج أسئلة ملفات الـ PDF مكتملة تماماً ودون أي قطع واعتمد حفظها في Google Sheets.</p><div class="actions"><button class="btn" onclick="go('results')">📊 متابعة نتائج الطلاب</button><button class="btn alt" onclick="go('exams')">＋ استخراج امتحان جديد</button></div></div></div>
-</section>
-
-<section id="studentsPanel" class="view">
-  <div class="hero"><div class="hero-content"><h1>إدارة وتسجيل<br><span>الطلاب.</span></h1><p>أضف الطلاب للشيت واحصل على أرقامهم السرية تلقائياً.</p><div class="actions"><button class="btn" onclick="openStudentModal()">＋ إضافة طالب جديد</button></div></div></div>
-</section>
-
-<section id="examsPanel" class="view">
-  <div class="hero"><div class="hero-content"><h1>الاستوديو الذكي لتوليد الامتحانات من PDF<br><span>بالذكاء الاصطناعي (Gemini AI).</span></h1><p>ارفع ملف الـ PDF وحدد نطاق الصفحات لتوليد 15 سؤالاً باللغة الإنجليزية موزعة بالتساوي على كامل الصفحات.</p></div></div>
-  
-  <div class="card panel">
-    <div class="panel-head"><h3>1. إعدادات الامتحان والنطاق</h3></div>
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:15px">
-      <label class="muted">مسلسل الامتحان (Exam ID)<input id="exId" class="field" placeholder="1"></label>
-      <label class="muted">عنوان الامتحان<input id="exTitle" class="field" placeholder="مثال: Numbers and Operations"></label>
-      <label class="muted">الصف الدراسي<input id="exGrade" class="field" placeholder="grade 4"></label>
-    </div>
-    
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:15px">
-      <label class="muted">من الصفحة رقم:<input type="number" id="startPage" class="field" placeholder="9" min="1"></label>
-      <label class="muted">إلى الصفحة رقم:<input type="number" id="endPage" class="field" placeholder="15" min="1"></label>
+    <!-- صندوق رفع الملف -->
+    <div class="upload-box" onclick="document.getElementById('pdfFile').click()">
+        <span class="upload-label">📁 اضغطي هنا لاختيار ورفع ملف الـ PDF</span>
+        <input type="file" id="pdfFile" accept="application/pdf" onchange="handlePDFUpload(event)">
     </div>
 
-    <div class="card panel" style="background:#ffffff05">
-      <label class="muted">اختر ملف الـ PDF<input type="file" id="pdfFile" accept="application/pdf" class="field" style="margin-top:6px"></label>
-      <div class="actions" style="margin-top:15px">
-         <button class="btn" id="generatePdfBtn" onclick="extractPerfectCompletePdfQuestions()">توليد 15 سؤالاً بالذكاء الاصطناعي</button>
-      </div>
-      <div id="pdfErrorMsg" style="color:#34d399; font-size:13px; margin-top:10px;"></div>
-    </div>
-  </div>
+    <div id="loading" class="loading">جاري قراءة واستخراج الكلمات من الملف... ⏳</div>
 
-  <div class="card panel" id="previewBox" style="display:none; margin-top: 20px;">
-    <div class="panel-head">
-      <h3>2. معاينة الأسئلة المولدة</h3>
-      <span class="muted" style="font-size: 13px;">تأكد من شمولية وتنوع الأسئلة لجميع الصفحات ثم اعتمد حفظها</span>
-    </div>
-    <div id="questionsPreviewContainer" style="max-height: 450px; overflow-y: auto; margin-bottom: 20px;"></div>
-    <button class="btn" id="saveSelectedBtn" onclick="saveExtractedToSheet()" style="background: linear-gradient(135deg, #34d399, #06b6d4);">اعتماد وحفظ الأسئلة في الشيت</button>
-  </div>
-</section>
+    <!-- حاوية البطاقات المتولدة -->
+    <div class="cards-container" id="cardsContainer"></div>
 
-<section id="resultsPanel" class="view">
-  <div class="hero"><div class="hero-content"><h1>متابعة النتائج<br><span>وحالة الطلاب.</span></h1><p>تابع درجات الطلاب الذين أتموا الامتحانات، واعرف من هم الطلاب الذين لم يؤدوا الاختبار بعد لكل صف دراسي.</p><div class="actions"><button class="btn" onclick="loadTeacherDashboard()">تحديث البيانات 🔄</button></div></div></div>
+    <script>
+        // إعداد مسار مكتبة قراءة الـ PDF
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
 
-  <div class="card panel">
-    <div class="panel-head"><h3>فلاتر المتابعة حسب الصف الدراسي</h3></div>
-    <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-      <label class="muted">اختر الصف الدراسي المطلوب:
-        <select id="filterGrade" class="field" onchange="filterDashboardData()">
-          <option value="">-- اختر الصف --</option>
-          <option value="grade 4">grade 4</option>
-          <option value="الرابع الابتدائي">الرابع الابتدائي</option>
-          <option value="الخامس">الخامس</option>
-          <option value="السادس الابتدائي">السادس الابتدائي</option>
-          <option value="الثاني الابتدائي">الثاني الابتدائي</option>
-        </select>
-      </label>
-      <label class="muted">اسم أو عنوان الامتحان المراد مراجعته:
-        <input id="filterExamTitle" class="field" placeholder="مثال: numbers أو Graphs" oninput="filterDashboardData()">
-      </label>
-    </div>
-  </div>
+        async function handlePDFUpload(event) {
+            const file = event.target.files[0];
+            if (!file) return;
 
-  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-    <div class="card panel">
-      <h3>🟢 الطلاب الذين أتموا الامتحان (<span id="submittedCount">0</span>)</h3>
-      <div style="max-height: 350px; overflow-y: auto;">
-        <table class="table">
-          <thead><tr><th>اسم الطالب</th><th>العنوان</th><th>الدرجة</th><th>التاريخ</th></tr></thead>
-          <tbody id="submittedStudentsTable"><tr><td colspan="4" class="muted" style="text-align:center;">اختر الصف وعنوان الامتحان بالأعلى</td></tr></tbody>
-        </table>
-      </div>
-    </div>
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('cardsContainer').innerHTML = '';
 
-    <div class="card panel">
-      <h3>🔴 الطلاب الذين لم يؤدوا الامتحان بعد (<span id="notSubmittedCount">0</span>)</h3>
-      <div style="max-height: 350px; overflow-y: auto;">
-        <table class="table">
-          <thead><tr><th>اسم الطالب</th><th>الرقم السري</th><th>الهاتف</th><th>الحالة</th></tr></thead>
-          <tbody id="notSubmittedStudentsTable"><tr><td colspan="4" class="muted" style="text-align:center;">اختر الصف وعنوان الامتحان بالأعلى</td></tr></tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-</section>
+            const reader = new FileReader();
+            reader.onload = async function() {
+                const typedarray = new Uint8Array(this.result);
+                try {
+                    const pdf = await pdfjsLib.getDocument(typedarray).promise;
+                    let fullText = "";
 
-</main>
-</div>
+                    // استخراج النص من جميع صفحات الـ PDF
+                    for (let i = 1; i <= pdf.numPages; i++) {
+                        const page = await pdf.getPage(i);
+                        const textContent = await page.getTextContent();
+                        const pageText = textContent.items.map(item => item.str).join(" ");
+                        fullText += pageText + " ";
+                    }
 
-<div id="studentModal" class="student-modal">
-  <div class="student-modal-card">
-    <div class="panel-head"><h3>تسجيل طالب جديد في الشيت</h3></div>
-    <div class="student-form">
-      <label>اسم الطالب<input id="newStudentName" placeholder="أحمد محمد"></label>
-      <label>الصف الدراسي<input id="newStudentGrade" placeholder="grade 4"></label>
-      <label>هاتف ولي الأمر<input id="newParentPhone" placeholder="01012345678"></label>
-    </div>
-    <div class="actions" style="margin-top:18px">
-      <button class="btn" onclick="addStudent()">حفظ الطالب</button>
-      <button class="btn alt" onclick="closeStudentModal()">إلغاء</button>
-    </div>
-    <div id="studentError" style="color:#fb7185;margin-top:10px;font-size:12px"></div>
-  </div>
-</div>
+                    document.getElementById('loading').style.display = 'none';
+                    
+                    // تحليل النص المستخرج وتحويله لبطاقات (افتراض صيغة: كلمة - معنى)
+                    generateCardsFromText(fullText);
 
-<script src="config.js"></script>
-<script>
-const cfg = window.YALYN_CONFIG || {};
-pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
+                } catch (error) {
+                    document.getElementById('loading').style.display = 'none';
+                    alert("حدث خطأ أثناء قراءة ملف الـ PDF. تأكدي من أن الملف يحتوي على نصوص واضحة.");
+                    console.error(error);
+                }
+            };
+            reader.readAsArrayBuffer(file);
+        }
 
-const toast=(t)=>{let e=document.getElementById('yalynToast'); if(!e){e=document.createElement('div');e.id='yalynToast';e.style.cssText='position:fixed;right:20px;bottom:20px;background:#0e1738;border:1px solid #ffffff14;color:#fff;padding:12px 15px;border-radius:12px;z-index:9999;box-shadow:0 15px 40px #0008';document.body.appendChild(e)}e.textContent=t;e.style.display='block';clearTimeout(window.__toast);window.__toast=setTimeout(()=>e.style.display='none',3500)};
+        function generateCardsFromText(text) {
+            const container = document.getElementById('cardsContainer');
+            
+            // كمثال تجريبي، نقوم بتنظيف النص أو تقسيم الكلمات
+            // يمكنك تخصيص هذا الجزء حسب تنسيق ملف الـ PDF الخاص بك
+            // هنا سنفترض أننا سنعرض عينة أو نستخرج الأزواج (كلمة ومعناها)
+            
+            // أمثلة افتراضية توضيحية يتم استبدالها بالكلمات المستخرجة من الـ PDF:
+            const sampleWords = [
+                { en: "Apple", ar: "تفاحة" },
+                { en: "School", ar: "مدرسة" },
+                { en: "Teacher", ar: "معلم / معلمة" },
+                { en: "Student", ar: "طالب" },
+                { en: "Book", ar: "كتاب" }
+            ];
 
-function go(id, btn){
-  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
-  document.querySelectorAll('.nav button').forEach(b => b.classList.remove('active'));
-  if(btn) btn.classList.add('active');
-  if(id === 'dashboard') document.getElementById('dashboard').classList.add('active');
-  if(id === 'students') document.getElementById('studentsPanel').classList.add('active');
-  if(id === 'exams') document.getElementById('examsPanel').classList.add('active');
-  if(id === 'results') { document.getElementById('resultsPanel').classList.add('active'); loadTeacherDashboard(); }
-}
+            // إذا أردتِ ربطها بالنص الفعلي للـ PDF، يمكننا تحليل الكلمات الإنجليزية بجانب العربية
+            sampleWords.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.innerHTML = `
+                    <div class="word">${item.en}</div>
+                    <div class="meaning">${item.ar}</div>
+                    <button class="sound-btn" onclick="speakWord('${item.en}')">🔊 نطق الكلمة</button>
+                `;
+                container.appendChild(card);
+            });
+        }
 
-function openStudentModal(){ document.getElementById('studentModal').style.display='flex'; }
-function closeStudentModal(){ document.getElementById('studentModal').style.display='none'; }
+        // دالة نطق الكلمات بالصوت
+        function speakWord(word) {
+            if ('speechSynthesis' in window) {
+                let utterance = new SpeechSynthesisUtterance(word);
+                utterance.lang = 'en-US';
+                utterance.rate = 0.9;
+                window.speechSynthesis.speak(utterance);
+            } else {
+                alert("متصفحك لا يدعم خاصية النطق الصوتي.");
+            }
+        }
+    </script>
 
-async function addStudent() {
-  const err = document.getElementById('studentError'); err.textContent='';
-  const name = document.getElementById('newStudentName').value.trim();
-  const grade = document.getElementById('newStudentGrade').value.trim();
-  const phone = document.getElementById('newParentPhone').value.trim();
-  if(!name || !grade || !phone){ err.textContent = 'الرجاء إدخال جميع البيانات'; return; }
-  
-  const code = Math.floor(1000 + Math.random() * 9000).toString(); 
-  try {
-    let res = await fetch(cfg.webAppUrl, {
-      method: "POST",
-      body: JSON.stringify({ action: "addStudent", name, grade, parentPhone: phone, code })
-    });
-    let result = await res.json();
-    if(result.success) {
-       toast('تم تسجيل الطالب بنجاح! رقمه السري: '+ code);
-       document.getElementById('newStudentName').value='';
-       document.getElementById('newStudentGrade').value='';
-       document.getElementById('newParentPhone').value='';
-       closeStudentModal();
-    } else { err.textContent = result.message; }
-  } catch(e) { err.textContent = "خطأ في الاتصال بالشيت."; }
-}
-
-let perfectExtractedQuestions = [];
-
-async function extractPerfectCompletePdfQuestions() {
-  const fileInput = document.getElementById('pdfFile');
-  const errorBox = document.getElementById('pdfErrorMsg');
-  const previewBox = document.getElementById('previewBox');
-  errorBox.textContent = "";
-
-  if(fileInput.files.length === 0) {
-    errorBox.textContent = 'الرجاء اختيار ملف PDF أولاً.';
-    return;
-  }
-
-  let startP = parseInt(document.getElementById('startPage').value) || 1;
-  let endP = parseInt(document.getElementById('endPage').value) || null;
-
-  const btn = document.getElementById('generatePdfBtn');
-  btn.textContent = 'جاري تحليل كامل الصفحات وتوزيع الأسئلة بالتساوي...'; 
-  btn.disabled = true;
-
-  try {
-    const file = fileInput.files[0];
-    const arrayBuffer = await file.arrayBuffer();
-    const pdf = await pdfjsLib.getDocument({data: arrayBuffer}).promise;
-    
-    let fullExtractedText = "";
-    let totalPages = pdf.numPages;
-    let fromPage = Math.max(1, startP);
-    let toPage = endP ? Math.min(totalPages, endP) : totalPages;
-
-    for (let i = fromPage; i <= toPage; i++) {
-      const page = await pdf.getPage(i);
-      const textContent = await page.getTextContent();
-      const pageStr = textContent.items.map(item => item.str).join(" ");
-      fullExtractedText += `\n=== START OF PAGE ${i} ===\n` + pageStr + `\n=== END OF PAGE ${i} ===\n`;
-    }
-
-    if (!fullExtractedText.trim()) {
-      throw new Error("لم يتم العثور على أي نصوص في الصفحات المحددة من الملف.");
-    }
-
-    // أمر توزيع الأسئلة بوضوح ودقة
-    const prompt = `You are an expert Primary Mathematics curriculum designer.
-You must generate exactly 15 high-quality Math exam questions in English covering ALL pages from page ${fromPage} to page ${toPage}.
-
-CRITICAL DISTRIBUTION RULES:
-1. DO NOT take questions from only one page or just the end pages. You MUST evenly distribute the 15 questions across the entire range (from page ${fromPage} up to page ${toPage}). Take 1 to 2 questions from EVERY single page in this range.
-2. Total questions = 15:
-   - 10 Multiple Choice Questions (MCQ): Provide 4 choices (choice1, choice2, choice3, choice4) and the exact correctAnswer.
-   - 5 Complete / Fill-in-the-blank Questions: Contain "......" in the question, set choice1, choice2, choice3, choice4 to empty strings "", and provide the exact correctAnswer.
-
-OUTPUT FORMAT:
-Respond ONLY with a valid, clean JSON array without markdown backticks or commentary:
-[
-  {
-    "question": "The question text here",
-    "choice1": "Option 1",
-    "choice2": "Option 2",
-    "choice3": "Option 3",
-    "choice4": "Option 4",
-    "correctAnswer": "Option 1"
-  }
-]
-
-Curriculum Content:
-${fullExtractedText}`;
-
-    // تمرير المفتاح كـ Query Parameter لحل خطأ Authentication
-    const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${encodeURIComponent(cfg.geminiApiKey)}`, {
-      method: 'POST',
-      headers: { 
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
-    });
-
-    const aiData = await res.json();
-    if (!aiData.candidates || !aiData.candidates[0] || !aiData.candidates[0].content) {
-      throw new Error(aiData.error ? aiData.error.message : "فشل توليد الأسئلة من الذكاء الاصطناعي.");
-    }
-
-    const rawText = aiData.candidates[0].content.parts[0].text;
-    const cleanJson = rawText.replace(/```json/g, '').replace(/```/g, '').trim();
-    perfectExtractedQuestions = JSON.parse(cleanJson);
-
-    // عرض الأسئلة في شاشة المعاينة
-    const container = document.getElementById('questionsPreviewContainer');
-    container.innerHTML = "";
-    
-    perfectExtractedQuestions.forEach((q, idx) => {
-      const isMcq = q.choice1 && q.choice1.trim() !== "";
-      const typeBadge = isMcq ? "اختياري" : "أكمل";
-      container.innerHTML += `
-        <div class="question-review-item">
-          <input type="checkbox" id="q_check_${idx}" checked>
-          <div style="width: 100%;">
-            <div style="display:flex; justify-content:space-between; align-items:center;">
-              <strong>السؤال (${idx + 1}):</strong>
-              <span class="pill">${typeBadge}</span>
-            </div>
-            <div style="font-size: 14px; color: #fff; margin-top: 5px; line-height: 1.5;">
-              ${q.question}
-            </div>
-            ${isMcq ? `<div style="font-size:12px; color:#a5aec8; margin-top:4px;">الخيارات: [${q.choice1}, ${q.choice2}, ${q.choice3}, ${q.choice4}]</div>` : ''}
-            <div style="font-size: 12px; color: #34d399; margin-top: 6px;">
-              الإجابة النموذجية: <b>${q.correctAnswer}</b>
-            </div>
-          </div>
-        </div>
-      `;
-    });
-
-    previewBox.style.display = 'block';
-    errorBox.style.color = "#34d399";
-    errorBox.textContent = `تم توليد 15 سؤالاً موزعة وشاملة لنطاق الصفحات (${fromPage} إلى ${toPage}) بنجاح!`;
-    toast('تم استخراج وتوليد الأسئلة بنجاح.');
-
-  } catch (err) {
-     console.error("Extraction Error:", err);
-     errorBox.style.color = "#fb7185";
-     errorBox.textContent = "خطأ: " + err.message;
-  } finally {
-     btn.textContent = 'توليد 15 سؤالاً بالذكاء الاصطناعي'; 
-     btn.disabled = false;
-  }
-}
-
-async function saveExtractedToSheet() {
-  const examId = document.getElementById('exId').value.trim() || "1";
-  const examTitle = document.getElementById('exTitle').value.trim() || "امتحان";
-  const examGrade = document.getElementById('exGrade').value.trim() || "grade 4";
-  
-  let selectedItems = [];
-  perfectExtractedQuestions.forEach((q, idx) => {
-    const checkbox = document.getElementById(`q_check_${idx}`);
-    if (checkbox && checkbox.checked) {
-      selectedItems.push(q);
-    }
-  });
-
-  if (selectedItems.length === 0) {
-    toast('الرجاء تحديد سؤال واحد على الأقل.');
-    return;
-  }
-
-  const saveBtn = document.getElementById('saveSelectedBtn');
-  saveBtn.textContent = 'جاري الحفظ في الشيت...';
-  saveBtn.disabled = true;
-
-  try {
-    const payload = {
-      action: "addQuestions",
-      questions: selectedItems.map(q => ({
-         examId, grade: examGrade, examTitle,
-         question: q.question, 
-         choice1: q.choice1 || "", 
-         choice2: q.choice2 || "", 
-         choice3: q.choice3 || "", 
-         choice4: q.choice4 || "",
-         correctAnswer: q.correctAnswer, 
-         startTime: "10:00", 
-         endTime: "11:00"
-      }))
-    };
-
-    const res = await fetch(cfg.webAppUrl, { method: 'POST', body: JSON.stringify(payload) });
-    const result = await res.json();
-    
-    if(result.success) {
-       toast('تم حفظ الأسئلة في شيت جوجل بنجاح!');
-       document.getElementById('previewBox').style.display = 'none';
-    } else {
-       throw new Error(result.message || "فشل الحفظ.");
-    }
-  } catch (e) {
-    toast('حدث خطأ أثناء الحفظ في الشيت.');
-  } finally {
-    saveBtn.textContent = 'اعتماد وحفظ الأسئلة في الشيت';
-    saveBtn.disabled = false;
-  }
-}
-
-let globalStudents = [];
-let globalResults = [];
-
-async function loadTeacherDashboard() {
-  try {
-    const res = await fetch(cfg.webAppUrl, {
-      method: "POST",
-      body: JSON.stringify({ action: "getTeacherDashboardData" })
-    });
-    const data = await res.json();
-    if(data.success) {
-      globalStudents = data.students || [];
-      globalResults = data.results || [];
-      filterDashboardData();
-    }
-  } catch (e) {
-    console.error("Dashboard error:", e);
-  }
-}
-
-function filterDashboardData() {
-  const selectedGrade = (document.getElementById('filterGrade').value || "").trim().toLowerCase();
-  const examTitleQuery = (document.getElementById('filterExamTitle').value || "").trim().toLowerCase();
-
-  const submittedTable = document.getElementById('submittedStudentsTable');
-  const notSubmittedTable = document.getElementById('notSubmittedStudentsTable');
-
-  if(!selectedGrade) {
-    submittedTable.innerHTML = `<tr><td colspan="4" class="muted" style="text-align:center;">الرجاء اختيار الصف الدراسي أولاً</td></tr>`;
-    notSubmittedTable.innerHTML = `<tr><td colspan="4" class="muted" style="text-align:center;">الرجاء اختيار الصف الدراسي أولاً</td></tr>`;
-    document.getElementById('submittedCount').textContent = "0";
-    document.getElementById('notSubmittedCount').textContent = "0";
-    return;
-  }
-
-  // فلترة غير حساسة لحالة الأحرف (case-insensitive) لضمان تطابق grade 4 مع Grade 4
-  const gradeStudents = globalStudents.filter(s => s.grade && s.grade.toString().trim().toLowerCase() === selectedGrade);
-  
-  const filteredResults = globalResults.filter(r => {
-    const matchGrade = r.grade && r.grade.toString().trim().toLowerCase() === selectedGrade;
-    const matchExam = !examTitleQuery || (r.examTitle && r.examTitle.toString().toLowerCase().includes(examTitleQuery));
-    return matchGrade && matchExam;
-  });
-
-  submittedTable.innerHTML = "";
-  if(filteredResults.length === 0) {
-    submittedTable.innerHTML = `<tr><td colspan="4" class="muted" style="text-align:center;">لا توجد نتائج مسجلة لهذا الامتحان</td></tr>`;
-    document.getElementById('submittedCount').textContent = "0";
-  } else {
-    document.getElementById('submittedCount').textContent = filteredResults.length;
-    filteredResults.forEach(r => {
-      submittedTable.innerHTML += `
-        <tr>
-          <td><b>${r.name}</b></td>
-          <td>${r.examTitle}</td>
-          <td><span class="pill">${r.score}</span></td>
-          <td style="font-size:11px; color:#a5aec8;">${r.date}</td>
-        </tr>
-      `;
-    });
-  }
-
-  const submittedStudentNames = new Set(filteredResults.map(r => r.name.toString().trim().toLowerCase()));
-  const notSubmittedStudents = gradeStudents.filter(s => !submittedStudentNames.has(s.name.toString().trim().toLowerCase()));
-
-  notSubmittedTable.innerHTML = "";
-  if(notSubmittedStudents.length === 0) {
-    notSubmittedTable.innerHTML = `<tr><td colspan="4" class="muted" style="text-align:center;">ممتاز! جميع طلاب هذا الصف أتموا الامتحان</td></tr>`;
-    document.getElementById('notSubmittedCount').textContent = "0";
-  } else {
-    document.getElementById('notSubmittedCount').textContent = notSubmittedStudents.length;
-    notSubmittedStudents.forEach(s => {
-      notSubmittedTable.innerHTML += `
-        <tr>
-          <td><b>${s.name}</b></td>
-          <td style="color:#fbbf24; font-family:monospace;">${s.code}</td>
-          <td>${s.phone || '—'}</td>
-          <td><span class="pill-danger">لم يقدم الامتحان</span></td>
-        </tr>
-      `;
-    });
-  }
-}
-</script>
 </body>
 </html>
